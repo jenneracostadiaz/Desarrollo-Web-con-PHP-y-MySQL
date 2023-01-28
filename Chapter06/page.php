@@ -29,14 +29,17 @@
         }
 
         public function DisplayTitle() {
-            echo "<title>".$this->title."</title>"
+            echo "<title>".$this->title."</title>";
         }
+
         public function DisplayKeywords() {
             echo "<meta name='keywords' content='".$this->keywords."'/>";
         }
+
         public function DisplayStyles() {
-            echo '<link type="text/css" rel="stylesheet" href="style.css">';
+            echo '<link type="text/css" rel="stylesheet" href="styles.css">';
         }
+
         public function DisplayHeader() {
             ?>
             <header>    
@@ -45,6 +48,7 @@
             </header>
             <?php
         }
+
         public function DisplayMenu($buttons) {
             echo "<nav>";
             while(list($name, $url) = each($buttons)) {
@@ -52,6 +56,7 @@
             }
             echo "</nav>\n";
         }
+
         public function IsURLCurrentPage($url) {
             if(strpos($_SERVER['PHP_SELF'],$url)===false){
                 return false;
@@ -59,6 +64,7 @@
                 return true;
             }
         }
+
         public function DisplayButton($name, $url, $active=true) {
             if($active){
                 ?>
