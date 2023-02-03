@@ -4,7 +4,8 @@ if ((!isset($_SERVER['PHP_AUTH_USER'])) &&
     (substr($_SERVER['HTTP_AUTHORIZATION'], 0, 6) == 'Basic ')
    ) {
 
-  list($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']) = explode(':', base64_decode(substr($_SERVER['HTTP_AUTHORIZATION'], 6)));
+  list($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']) =
+    explode(':', base64_decode(substr($_SERVER['HTTP_AUTHORIZATION'], 6)));
 }
 
 // Replace this if statement with a database query or similar
@@ -18,17 +19,17 @@ if (($_SERVER['PHP_AUTH_USER'] != 'user') ||
   header('HTTP/1.0 401 Unauthorized');
 } else {
 ?>
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Secret Page</title>
-        </head>
-    <body>
-    <?php
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Secret Page</title>
+</head>
+<body>
+<?php
 
-    echo '<h1>Here it is!</h1>
-        <p>I bet you are glad you can see this secret page.</p>';
-    }
+echo '<h1>Here it is!</h1>
+      <p>I bet you are glad you can see this secret page.</p>';
+}
 ?>
-    </body>
+</body>
 </html>
