@@ -11,7 +11,7 @@
      echo "You have not specified a file name.";
   } 
   else {
-     $uploads_dir = '/path/to/uploads/';
+     $uploads_dir = './uploads/';
      $the_file = basename($_GET['file']);  // strip off directory information for security
 
      $safe_file = $uploads_dir.$the_file;
