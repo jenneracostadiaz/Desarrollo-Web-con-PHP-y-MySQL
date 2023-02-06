@@ -6,49 +6,54 @@
 <body>
    <h1>Site Submission Results</h1>
 
-<?php
+    <?php
 
-// Extract form fields
-$url = $_POST['url'];
-$email = $_POST['email'];
+        // Extract form fields
+        // $url = $_POST['url'];
+        // $email = $_POST['email'];
 
-// Check the URL
-$url = parse_url($url);
-$host = $url['host'];
+        $url = 'https://mozilla.org/';
+        $email = 'info@mozilla.org';
 
-if (!($ip = gethostbyname($host)))
-{
-  echo 'Host for URL does not have valid IP address.';
-  exit;
-} 
+        
+        // Check the URL
+        $url = parse_url($url);
+        $host = $url['host'];
+        
 
-echo 'Host ('.$host.') is at IP '.$ip.'<br/>';
- 
-// Check the email address
-$email = explode('@', $email);
-$emailhost = $email[1];
+        if (!($ip = gethostbyname($host))) {
+            echo 'Host for URL does not have valid IP address.';
+            exit;
+        } 
 
-if (!getmxrr($emailhost, $mxhostsarr))
-{
-  echo 'Email address is not at valid host.';
-  exit;
-}
+        echo 'Host ('.$host.') is at IP '.$ip.'<br/>';
+        
+        
+        // Check the email address
+        $email = explode('@', $email);
+        $emailhost = $email[1];
 
-echo 'Email is delivered via: <br/>
-<ul>';
+       
+        if (!getmxrr($emailhost, $mxhostsarr)) {
+            echo 'Email address is not at valid host.';
+            exit;
+        }
 
-foreach ($mxhostsarr as $mx) 
-{
-  echo '<li>'.$mx.'</li>';
-}
+        echo 'Email is delivered via: <br/>
+        <ul>';
 
-echo '</ul>';
+        foreach ($mxhostsarr as $mx)  {
+            echo '<li>'.$mx.'</li>';
+        }
 
-// If reached here, all ok
-echo '<p>All submitted details are ok.</p>';
-echo '<p>Thank you for submitting your site. 
-      It will be visited by one of our staff members soon.</p>';
-// In real case, add to db of waiting sites...
-?>
+        echo '</ul>';
+        
+
+        // If reached here, all ok
+        echo '<p>All submitted details are ok.</p>';
+        echo '<p>Thank you for submitting your site. 
+            It will be visited by one of our staff members soon.</p>';
+        // In real case, add to db of waiting sites...
+    ?>
 </body>
 </html>

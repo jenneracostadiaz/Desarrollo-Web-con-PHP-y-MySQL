@@ -12,8 +12,8 @@ echo '<h1>Stock Quote for '.$symbol.'</h1>';
 
 $url = 'http://download.finance.yahoo.com/d/quotes.csv' .
     '?s='.$symbol.'&e=.csv&f=sl1d1t1c1ohgv';
-$contents = file_get_contents($url);
-if (!($contents )) {
+
+if (!($contents = file_get_contents($url))) {
     die('Failed to open '.$url);
 }
 
