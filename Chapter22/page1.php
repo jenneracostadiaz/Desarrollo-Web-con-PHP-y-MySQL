@@ -1,9 +1,8 @@
-<?php
-session_start();
+<?php 
+    session_start();
 
-$_SESSION['session_var'] = "Hello world!";
+    $_SESSION['session_var'] = "Hellor world!";
 
-echo 'The content of $_SESSION[\'session_var\'] is '
-     .$_SESSION['session_var'].'<br />';
+    echo 'The content of $_SESSION[\'session_var\'] is '.$_SESSION['session_var'].'<br />';
 ?>
-<p><a href="page2.php">Next page</a></p>
+<p><a href="page2.php">Next Page</a></p>
